@@ -9,19 +9,21 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="257dp"
-        android:layout_height="121dp"
-        android:layout_marginTop="56dp"
+        android:layout_width="177dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="72dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logoapp" />
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="243dp"
+        android:id="@+id/nombreET"
+        android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginEnd="52dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:fontFamily="@font/montserrat"
@@ -33,19 +35,22 @@
         android:textColorHighlight="#00FFFFFF"
         android:textColorHint="#E8E8E8"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
-        android:id="@+id/editText2"
-        android:layout_width="243dp"
+        android:id="@+id/codigoET"
+        android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="52dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:fontFamily="@font/montserrat"
         android:foregroundTint="#FFFFFF"
-        android:hint="Nombre completo"
+        android:hint="Código estudiantil"
         android:inputType="textPersonName"
         android:shadowColor="#FFFFFF"
         android:textColor="#FFFFFF"
@@ -53,5 +58,92 @@
         android:textColorHint="#E8E8E8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/nombreET" />
+
+    <EditText
+        android:id="@+id/documentoET"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="52dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:foregroundTint="#FFFFFF"
+        android:hint="Documento de identidad"
+        android:inputType="textPersonName"
+        android:shadowColor="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#00FFFFFF"
+        android:textColorHint="#E8E8E8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/codigoET" />
+
+    <EditText
+        android:id="@+id/claveUnoET"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="52dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#E8E8E8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/documentoET" />
+
+    <EditText
+        android:id="@+id/claveDosET"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="52dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:hint="Verificar contraseña"
+        android:inputType="textPassword"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#E8E8E8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/claveUnoET" />
+
+    <RadioButton
+        android:id="@+id/codicionesRButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:buttonTint="#FFFFFF"
+        android:fontFamily="@font/montserrat"
+        android:text="Acepto los términos y condiciones"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/claveDosET" />
+
+    <Button
+        android:id="@+id/registrarseBtn"
+        android:layout_width="165dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/montserrat"
+        android:text="Registrarse"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#444444"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/codicionesRButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
