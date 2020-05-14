@@ -20,8 +20,8 @@ public class RegistroActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_registro);
+
         nombreET= findViewById(R.id.nombreET);
         codigoET= findViewById(R.id.codigoET);
         documentoET= findViewById(R.id.documentoET);
