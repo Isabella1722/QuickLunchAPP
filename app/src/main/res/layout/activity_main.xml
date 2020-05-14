@@ -30,7 +30,6 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
@@ -44,16 +43,15 @@
         android:text="¿No tienes una cuenta?"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iniciarSesionBtn" />
 
     <Button
         android:id="@+id/iniciarSesionBtn"
         android:layout_width="255dp"
-        android:layout_height="46dp"
+        android:layout_height="57dp"
         android:layout_marginTop="56dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/montserrat"
@@ -61,14 +59,13 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#444444"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/registroBtn"
         android:layout_width="255dp"
-        android:layout_height="46dp"
+        android:layout_height="57dp"
         android:layout_marginTop="44dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/montserrat"
