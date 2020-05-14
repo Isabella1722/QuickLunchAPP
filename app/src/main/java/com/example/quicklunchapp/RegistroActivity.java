@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.style.TtsSpan;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -36,8 +37,64 @@ public class RegistroActivity extends AppCompatActivity {
                     startActivity(i);
                 }
         );
+    }
 
+    public void onStart(){
+        super.onStart();
 
+        nombreET.setOnFocusChangeListener( new View.OnFocusChangeListener(){
+            public void onFocusChange( View view, boolean hasfocus){
+                if(hasfocus){
+                    view.setBackgroundResource( R.drawable.focus_input);
+                }
+                else{
+                    view.setBackgroundResource( R.drawable.rounded_input);
+                }
+            }
+        });
 
+        codigoET.setOnFocusChangeListener( new View.OnFocusChangeListener(){
+            public void onFocusChange( View view, boolean hasfocus){
+                if(hasfocus){
+                    view.setBackgroundResource( R.drawable.focus_input);
+                }
+                else{
+                    view.setBackgroundResource( R.drawable.rounded_input);
+                }
+            }
+        });
+
+        documentoET.setOnFocusChangeListener( new View.OnFocusChangeListener(){
+            public void onFocusChange( View view, boolean hasfocus){
+                if(hasfocus){
+                    view.setBackgroundResource( R.drawable.focus_input);
+                }
+                else{
+                    view.setBackgroundResource( R.drawable.rounded_input);
+                }
+            }
+        });
+
+        claveUnoET.setOnFocusChangeListener( new View.OnFocusChangeListener(){
+            public void onFocusChange( View view, boolean hasfocus){
+                if(hasfocus){
+                    view.setBackgroundResource( R.drawable.focus_input);
+                }
+                else{
+                    view.setBackgroundResource( R.drawable.rounded_input);
+                }
+            }
+        });
+
+        claveDosET.setOnFocusChangeListener( new View.OnFocusChangeListener(){
+            public void onFocusChange( View view, boolean hasfocus){
+                if(hasfocus){
+                    view.setBackgroundResource( R.drawable.focus_input);
+                }
+                else{
+                    view.setBackgroundResource( R.drawable.rounded_input);
+                }
+            }
+        });
     }
 }

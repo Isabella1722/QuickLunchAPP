@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -28,5 +29,31 @@ public class IniciarSesionActivity extends AppCompatActivity {
                     startActivity(i);
                 }
         );
+    }
+
+    public void onStart(){
+        super.onStart();
+
+        documentoET.setOnFocusChangeListener( new View.OnFocusChangeListener(){
+            public void onFocusChange( View view, boolean hasfocus){
+                if(hasfocus){
+                    view.setBackgroundResource( R.drawable.focus_input);
+                }
+                else{
+                    view.setBackgroundResource( R.drawable.rounded_input);
+                }
+            }
+        });
+
+        claveET.setOnFocusChangeListener( new View.OnFocusChangeListener(){
+            public void onFocusChange( View view, boolean hasfocus){
+                if(hasfocus){
+                    view.setBackgroundResource( R.drawable.focus_input);
+                }
+                else{
+                    view.setBackgroundResource( R.drawable.rounded_input);
+                }
+            }
+        });
     }
 }
