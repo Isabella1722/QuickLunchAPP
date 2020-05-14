@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foregroundTint="#81009688">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".VerPlatoActivity"
     android:background="@drawable/fondopedido">
 
+
+    <Button
+        android:id="@+id/pedirBtn"
+        android:layout_width="181dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/montserrat"
+        android:text="Pedir"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#444444"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/comentariosET2" />
+
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="420dp"
         android:layout_height="334dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="96dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/descripuno" />
@@ -20,7 +41,8 @@
         android:id="@+id/textView13"
         android:layout_width="350dp"
         android:layout_height="94dp"
-        android:layout_marginTop="216dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="196dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/montserrat"
         android:text="Descipción: Delicioso pollo apanado con la receta de la abuela, acompañado de ensalada primavera  (lechuga, tomate, aceitunas) y una porción de papás a la francesa.:"
@@ -29,7 +51,7 @@
         android:textSize="14sp"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_bias="0.596"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -37,7 +59,7 @@
         android:id="@+id/textView18"
         android:layout_width="341dp"
         android:layout_height="35dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginStart="15dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/montserrat"
         android:text="Bebida: Jugo de mora"
@@ -46,7 +68,7 @@
         android:textSize="14sp"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
@@ -54,7 +76,8 @@
         android:id="@+id/textView19"
         android:layout_width="341dp"
         android:layout_height="35dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/montserrat"
         android:text="Postre: Tres leches"
@@ -63,15 +86,15 @@
         android:textSize="14sp"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <EditText
         android:id="@+id/comentariosET2"
-        android:layout_width="339dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="337dp"
+        android:layout_height="113dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:fontFamily="@font/montserrat"
         android:gravity="start|top"
@@ -89,14 +112,15 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="80dp"
         android:fontFamily="@font/grand_hotel"
         android:text="Pollo Colombiano"
         android:textColor="#444444"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
