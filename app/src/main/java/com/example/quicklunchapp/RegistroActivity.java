@@ -57,7 +57,7 @@ public class RegistroActivity extends AppCompatActivity {
                             String codigo= codigoET.getText().toString();
                             String documentoIdentidad= documentoET.getText().toString();
                             String clave= claveUnoET.getText().toString();
-                            
+
                             Usuario estudiante = new Usuario(id,nombre,codigo,documentoIdentidad,clave);
                             FirebaseDatabase.getInstance().getReference().child("estudiantes").child(id).setValue(estudiante);
 
