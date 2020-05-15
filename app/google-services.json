@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "171443386236",
+    "firebase_url": "https://quicklunch-51d9a.firebaseio.com",
+    "project_id": "quicklunch-51d9a",
+    "storage_bucket": "quicklunch-51d9a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171443386236:android:047ac4415a006922d7d6f9",
+        "android_client_info": {
+          "package_name": "com.example.quicklunchapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "171443386236-b9nff20q9r3u79qv8h8no5itrmplpe2g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.quicklunchapp",
+            "certificate_hash": "5f75905b0c7de706394aa8c67cf1bc67100af59a"
+          }
+        },
+        {
+          "client_id": "171443386236-cumqji56nesgsclnchnd7o0d6uhk2sgh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQekJsypVHacU1rT0YF-tcR6hnfwvhCS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "171443386236-cumqji56nesgsclnchnd7o0d6uhk2sgh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

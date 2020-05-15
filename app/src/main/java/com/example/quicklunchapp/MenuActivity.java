@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.example.quicklunchapp.model.Plato;
+
+import java.util.ArrayList;
+
 public class MenuActivity extends AppCompatActivity {
 
 
@@ -17,7 +21,6 @@ public class MenuActivity extends AppCompatActivity {
     private ImageButton menuCuatroBtn;
     private ImageButton menuCincoBtn;
     private ImageButton menuSeisBtn;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,15 @@ public class MenuActivity extends AppCompatActivity {
                 (v)->{
                     restaurarAlphaDeImagenes();
                     menuUnoBtn.setAlpha(0.2f);
+                    String nombre= "Pollo colombiano";
+                    String descripcion= "Descipción: Delicioso pollo apanado con la receta de la abuela, acompañado de ensalada primavera  (lechuga, tomate, aceitunas) y una porción de papás a la francesa";
+                    String bebida="Bebida: Jugo de mora";
+                    String postre="Postre: Tres leches";
                     Intent i = new Intent(this, VerPlatoActivity.class);
+                    i.putExtra("nombre",nombre);
+                    i.putExtra("descrip",descripcion);
+                    i.putExtra("bebida",bebida);
+                    i.putExtra("postre",postre);
                     startActivity(i);
                 }
         );

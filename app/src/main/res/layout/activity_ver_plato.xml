@@ -26,19 +26,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comentariosET2" />
+        app:layout_constraintTop_toBottomOf="@+id/comentariosET" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imagenQR"
         android:layout_width="420dp"
         android:layout_height="334dp"
         android:layout_marginTop="96dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/descripuno" />
+        app:srcCompat="@drawable/desuno" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/nombrePedido"
         android:layout_width="350dp"
         android:layout_height="94dp"
         android:layout_marginStart="15dp"
@@ -53,10 +53,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.596"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/nombreET" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/bebidaET"
         android:layout_width="341dp"
         android:layout_height="35dp"
         android:layout_marginStart="15dp"
@@ -70,10 +70,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/nombrePedido" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/jugoET"
         android:layout_width="341dp"
         android:layout_height="35dp"
         android:layout_marginStart="15dp"
@@ -88,10 +88,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        app:layout_constraintTop_toBottomOf="@+id/bebidaET" />
 
     <EditText
-        android:id="@+id/comentariosET2"
+        android:id="@+id/comentariosET"
         android:layout_width="337dp"
         android:layout_height="113dp"
         android:layout_marginTop="12dp"
@@ -106,15 +106,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+        app:layout_constraintTop_toBottomOf="@+id/jugoET" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/nombreET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:fontFamily="@font/grand_hotel"
-        android:text="Pollo Colombiano"
+        android:text="aaa"
         android:textColor="#444444"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
