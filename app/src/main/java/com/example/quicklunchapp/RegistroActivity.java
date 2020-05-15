@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.quicklunchapp.model.Usuario;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class RegistroActivity extends AppCompatActivity {
 
 
@@ -49,6 +52,15 @@ public class RegistroActivity extends AppCompatActivity {
                             v.setBackgroundResource(R.drawable.rounded_input);
                             Intent i = new Intent(this, MenuActivity.class);
                             startActivity(i);
+                            String id = FirebaseDatabase.getInstance().getReference().child("estudiantes").push().getKey();
+                            String nombre= nombreET.getText().toString();
+                            String codigo= codigoET.getText().toString();
+                            String documentoIdentidad= documentoET.getText().toString();
+                            String clave= claveUnoET.getText().toString();
+                            
+                            Usuario estudiante = new Usuario(id,nombre,codigo,documentoIdentidad,clave);
+                            FirebaseDatabase.getInstance().getReference().child("estudiantes").child(id).setValue(estudiante);
+
                             break;
                     }
                     return true;
