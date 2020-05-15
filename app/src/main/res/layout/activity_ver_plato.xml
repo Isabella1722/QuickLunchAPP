@@ -16,9 +16,9 @@
     <Button
         android:id="@+id/pedirBtn"
         android:layout_width="181dp"
-        android:layout_height="0dp"
+        android:layout_height="45dp"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#FFC107"
+        android:background="@drawable/rounded_input"
         android:fontFamily="@font/montserrat"
         android:text="Pedir"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"

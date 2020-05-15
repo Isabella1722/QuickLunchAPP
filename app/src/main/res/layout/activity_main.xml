@@ -51,9 +51,9 @@
     <Button
         android:id="@+id/iniciarSesionBtn"
         android:layout_width="255dp"
-        android:layout_height="57dp"
+        android:layout_height="45dp"
         android:layout_marginTop="56dp"
-        android:backgroundTint="#FFC107"
+        android:background="@drawable/rounded_input"
         android:fontFamily="@font/montserrat"
         android:text="Iniciar sesión"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -65,9 +65,9 @@
     <Button
         android:id="@+id/registroBtn"
         android:layout_width="255dp"
-        android:layout_height="57dp"
+        android:layout_height="45dp"
         android:layout_marginTop="44dp"
-        android:backgroundTint="#FFC107"
+        android:background="@drawable/rounded_input"
         android:fontFamily="@font/montserrat"
         android:text="Regístrate"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"

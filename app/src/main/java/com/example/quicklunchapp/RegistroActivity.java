@@ -2,9 +2,11 @@ package com.example.quicklunchapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.style.TtsSpan;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +20,7 @@ public class RegistroActivity extends AppCompatActivity {
     private EditText claveUnoET;
     private EditText claveDosET;
     private Button registrarseBtn;
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,71 +33,26 @@ public class RegistroActivity extends AppCompatActivity {
         claveDosET= findViewById(R.id.claveDosET);
         registrarseBtn= findViewById(R.id.registrarseBtn);
 
+        registrarseBtn.setOnTouchListener(
+                (v, event) -> {
 
-        registrarseBtn.setOnClickListener(
-                (v)->{
-                    Intent i = new Intent(this, MenuActivity.class);
-                    startActivity(i);
+                    switch (event.getAction()) {
+                        case MotionEvent.ACTION_DOWN:
+                            v.setBackgroundResource(R.drawable.focus_input);
+                            break;
+
+                        case MotionEvent.ACTION_MOVE:
+
+                            break;
+
+                        case MotionEvent.ACTION_UP:
+                            v.setBackgroundResource(R.drawable.rounded_input);
+                            Intent i = new Intent(this, MenuActivity.class);
+                            startActivity(i);
+                            break;
+                    }
+                    return true;
                 }
         );
-    }
-
-    public void onStart(){
-        super.onStart();
-
-        nombreET.setOnFocusChangeListener( new View.OnFocusChangeListener(){
-            public void onFocusChange( View view, boolean hasfocus){
-                if(hasfocus){
-                    view.setBackgroundResource( R.drawable.focus_input);
-                }
-                else{
-                    view.setBackgroundResource( R.drawable.rounded_input);
-                }
-            }
-        });
-
-        codigoET.setOnFocusChangeListener( new View.OnFocusChangeListener(){
-            public void onFocusChange( View view, boolean hasfocus){
-                if(hasfocus){
-                    view.setBackgroundResource( R.drawable.focus_input);
-                }
-                else{
-                    view.setBackgroundResource( R.drawable.rounded_input);
-                }
-            }
-        });
-
-        documentoET.setOnFocusChangeListener( new View.OnFocusChangeListener(){
-            public void onFocusChange( View view, boolean hasfocus){
-                if(hasfocus){
-                    view.setBackgroundResource( R.drawable.focus_input);
-                }
-                else{
-                    view.setBackgroundResource( R.drawable.rounded_input);
-                }
-            }
-        });
-
-        claveUnoET.setOnFocusChangeListener( new View.OnFocusChangeListener(){
-            public void onFocusChange( View view, boolean hasfocus){
-                if(hasfocus){
-                    view.setBackgroundResource( R.drawable.focus_input);
-                }
-                else{
-                    view.setBackgroundResource( R.drawable.rounded_input);
-                }
-            }
-        });
-
-        claveDosET.setOnFocusChangeListener( new View.OnFocusChangeListener(){
-            public void onFocusChange( View view, boolean hasfocus){
-                if(hasfocus){
-                    view.setBackgroundResource( R.drawable.focus_input);
-                }
-                else{
-                    view.setBackgroundResource( R.drawable.rounded_input);
-                }
-            }
-        });
     }
 }
