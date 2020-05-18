@@ -7,11 +7,15 @@ public class Plato implements Serializable {
     private String id;
     private String nombre;
     private String descripcion;
+    private String bebida;
+    private String postre;
     private String url;
 
-    public Plato(String id, String nombre, String descripcion, String url) {
+    public Plato(String id, String nombre, String descripcion, String bebida, String postre, String url) {
         this.id = id;
         this.nombre = nombre;
+        this.bebida = bebida;
+        this.postre = postre;
         this.descripcion = descripcion;
         this.url = url;
     }
@@ -41,6 +45,22 @@ public class Plato implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getBebida() {
+        return bebida;
+    }
+
+    public void setBebida(String bebida) {
+        this.bebida = bebida;
+    }
+
+    public String getPostre() {
+        return postre;
+    }
+
+    public void setPostre(String postre) {
+        this.postre = postre;
     }
 
     public String getUrl() {
