@@ -26,6 +26,7 @@ public class VerPlatoActivity extends AppCompatActivity {
 
     private Button pedirBtn;
 
+    private Plato plato;
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +39,18 @@ public class VerPlatoActivity extends AppCompatActivity {
         bebidaET = findViewById(R.id.bebidaET);
         postreET = findViewById(R.id.postreET);
 
-        String nombre = getIntent().getExtras().getString("nombre");
+        //String nombre = getIntent().getExtras().getString("nombre");
         String descrip = getIntent().getExtras().getString("descrip");
         String bebida = getIntent().getExtras().getString("bebida");
         String postre = getIntent().getExtras().getString("postre");
 
-        nombreET.setText(nombre);
+        //nombreET.setText(nombre);
         descripcionET.setText(descrip);
         bebidaET.setText(bebida);
         postreET.setText(postre);
 
+        plato= (Plato) getIntent().getExtras().getSerializable("plato");
+        nombreET.setText(plato.toString());
         pedirBtn.setOnTouchListener(
                 (v, event) -> {
                     switch (event.getAction()) {

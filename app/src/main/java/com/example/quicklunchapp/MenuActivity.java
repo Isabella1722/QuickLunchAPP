@@ -1,5 +1,7 @@
 package com.example.quicklunchapp;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,6 +11,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.quicklunchapp.model.Plato;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -20,7 +26,7 @@ public class MenuActivity extends AppCompatActivity {
     private ImageButton menuCuatroBtn;
     private ImageButton menuCincoBtn;
     private ImageButton menuSeisBtn;
-
+    private ArrayList<Plato> platos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,21 +38,23 @@ public class MenuActivity extends AppCompatActivity {
         menuCuatroBtn = findViewById(R.id.menuCuatroBtn);
         menuCincoBtn = findViewById(R.id.menuCincoBtn);
         menuSeisBtn = findViewById(R.id.menuSeisBtn);
-
+        platos = new ArrayList<>();
 
         menuUnoBtn.setOnClickListener(
                 (v) -> {
                     restaurarAlphaDeImagenes();
                     menuUnoBtn.setAlpha(0.2f);
-                    String nombre = "Pollo colombiano";
+                    //String nombre=FirebaseDatabase.getInstance().getReference().child("platos").child(platos.getId(p01)).
+                   // String nombre = "Pollo colombiano";
                     String descripcion = "Descipción: Delicioso pollo apanado con la receta de la abuela, acompañado de ensalada primavera  (lechuga, tomate, aceitunas) y una porción de papás a la francesa";
                     String bebida = "Bebida: Jugo de mora";
                     String postre = "Postre: Tres leches";
                     Intent i = new Intent(this, VerPlatoActivity.class);
-                    i.putExtra("nombre", nombre);
+                    //i.putExtra("nombre", nombre);
                     i.putExtra("descrip", descripcion);
                     i.putExtra("bebida", bebida);
                     i.putExtra("postre", postre);
+                   // i.putExtra("plato",plato1);
                     startActivity(i);
                 }
         );
@@ -99,6 +107,35 @@ public class MenuActivity extends AppCompatActivity {
         );*/
 
 
+        FirebaseDatabase.getInstance().getReference().child("platos").
+                addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                        Plato plato = dataSnapshot.getValue(Plato.class);
+                        platos.add(plato);
+
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
     }
 
     public void restaurarAlphaDeImagenes() {
@@ -112,4 +149,10 @@ public class MenuActivity extends AppCompatActivity {
 
 
     }
+
+
+
+
 }
+
+
