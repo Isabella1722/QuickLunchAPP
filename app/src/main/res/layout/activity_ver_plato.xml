@@ -18,11 +18,13 @@
         android:layout_width="181dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/rounded_input"
         android:fontFamily="@font/montserrat"
         android:text="Pedir"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#444444"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,28 +32,27 @@
 
     <ImageView
         android:id="@+id/imagenQR"
-        android:layout_width="420dp"
+        android:layout_width="0dp"
         android:layout_height="334dp"
         android:layout_marginTop="96dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/desuno" />
 
     <TextView
-        android:id="@+id/nombrePedido"
+        android:id="@+id/descripcionET"
         android:layout_width="350dp"
         android:layout_height="94dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="196dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/montserrat"
-        android:text="Descipción: Delicioso pollo apanado con la receta de la abuela, acompañado de ensalada primavera  (lechuga, tomate, aceitunas) y una porción de papás a la francesa.:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#888888"
         android:textSize="14sp"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.596"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreET" />
 
@@ -59,10 +60,9 @@
         android:id="@+id/bebidaET"
         android:layout_width="341dp"
         android:layout_height="35dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/montserrat"
-        android:text="Bebida: Jugo de mora"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#888888"
         android:textSize="14sp"
@@ -70,17 +70,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombrePedido" />
+        app:layout_constraintTop_toBottomOf="@+id/descripcionET" />
 
     <TextView
-        android:id="@+id/jugoET"
+        android:id="@+id/postreET"
         android:layout_width="341dp"
         android:layout_height="35dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/montserrat"
-        android:text="Postre: Tres leches"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#888888"
         android:textSize="14sp"
@@ -95,6 +94,7 @@
         android:layout_width="337dp"
         android:layout_height="113dp"
         android:layout_marginTop="12dp"
+        android:backgroundTint="#DDDDDD"
         android:ems="10"
         android:fontFamily="@font/montserrat"
         android:gravity="start|top"
@@ -104,9 +104,8 @@
         android:textColorHint="#C5C5C5"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jugoET" />
+        app:layout_constraintTop_toBottomOf="@+id/postreET" />
 
     <TextView
         android:id="@+id/nombreET"

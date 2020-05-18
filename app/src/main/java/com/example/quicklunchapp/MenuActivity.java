@@ -14,7 +14,6 @@ import java.util.ArrayList;
 
 public class MenuActivity extends AppCompatActivity {
 
-
     private ImageButton menuUnoBtn;
     private ImageButton menuDosBtn;
     private ImageButton menuTresBtn;
@@ -27,39 +26,47 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        menuUnoBtn= findViewById(R.id.menuUnoBtn);
-        menuDosBtn= findViewById(R.id.menuDosBtn);
-        menuTresBtn= findViewById(R.id.menuTresBtn);
-        menuCuatroBtn= findViewById(R.id.menuCuatroBtn);
-        menuCincoBtn= findViewById(R.id.menuCincoBtn);
-        menuSeisBtn= findViewById(R.id.menuSeisBtn);
+        menuUnoBtn = findViewById(R.id.menuUnoBtn);
+        menuDosBtn = findViewById(R.id.menuDosBtn);
+        menuTresBtn = findViewById(R.id.menuTresBtn);
+        menuCuatroBtn = findViewById(R.id.menuCuatroBtn);
+        menuCincoBtn = findViewById(R.id.menuCincoBtn);
+        menuSeisBtn = findViewById(R.id.menuSeisBtn);
+
 
         menuUnoBtn.setOnClickListener(
-                (v)->{
+                (v) -> {
                     restaurarAlphaDeImagenes();
                     menuUnoBtn.setAlpha(0.2f);
-                    String nombre= "Pollo colombiano";
-                    String descripcion= "Descipción: Delicioso pollo apanado con la receta de la abuela, acompañado de ensalada primavera  (lechuga, tomate, aceitunas) y una porción de papás a la francesa";
-                    String bebida="Bebida: Jugo de mora";
-                    String postre="Postre: Tres leches";
+                    String nombre = "Pollo colombiano";
+                    String descripcion = "Descipción: Delicioso pollo apanado con la receta de la abuela, acompañado de ensalada primavera  (lechuga, tomate, aceitunas) y una porción de papás a la francesa";
+                    String bebida = "Bebida: Jugo de mora";
+                    String postre = "Postre: Tres leches";
                     Intent i = new Intent(this, VerPlatoActivity.class);
-                    i.putExtra("nombre",nombre);
-                    i.putExtra("descrip",descripcion);
-                    i.putExtra("bebida",bebida);
-                    i.putExtra("postre",postre);
+                    i.putExtra("nombre", nombre);
+                    i.putExtra("descrip", descripcion);
+                    i.putExtra("bebida", bebida);
+                    i.putExtra("postre", postre);
                     startActivity(i);
                 }
         );
         menuDosBtn.setOnClickListener(
-                (v)->{
+                (v) -> {
                     restaurarAlphaDeImagenes();
-                    menuDosBtn.setAlpha(0.2f);
+                    String nombre = "plato";
+                    String descripcion = "Descipción:  si";
+                    String bebida = "Bebida: awa de uwu";
+                    String postre = "Postre: xd";
                     Intent i = new Intent(this, VerPlatoActivity.class);
+                    i.putExtra("nombre", nombre);
+                    i.putExtra("descrip", descripcion);
+                    i.putExtra("bebida", bebida);
+                    i.putExtra("postre", postre);
                     startActivity(i);
                 }
         );
-        menuTresBtn.setOnClickListener(
-                (v)->{
+        /*`menuTresBtn.setOnClickListener(
+                (v) -> {
                     restaurarAlphaDeImagenes();
                     menuTresBtn.setAlpha(0.2f);
                     Intent i = new Intent(this, VerPlatoActivity.class);
@@ -67,7 +74,7 @@ public class MenuActivity extends AppCompatActivity {
                 }
         );
         menuCuatroBtn.setOnClickListener(
-                (v)->{
+                (v) -> {
                     restaurarAlphaDeImagenes();
                     menuCuatroBtn.setAlpha(0.2f);
                     Intent i = new Intent(this, VerPlatoActivity.class);
@@ -75,7 +82,7 @@ public class MenuActivity extends AppCompatActivity {
                 }
         );
         menuCincoBtn.setOnClickListener(
-                (v)->{
+                (v) -> {
                     restaurarAlphaDeImagenes();
                     menuCincoBtn.setAlpha(0.2f);
                     Intent i = new Intent(this, VerPlatoActivity.class);
@@ -83,22 +90,18 @@ public class MenuActivity extends AppCompatActivity {
                 }
         );
         menuSeisBtn.setOnClickListener(
-                (v)->{
+                (v) -> {
                     restaurarAlphaDeImagenes();
                     menuSeisBtn.setAlpha(0.2f);
                     Intent i = new Intent(this, VerPlatoActivity.class);
                     startActivity(i);
                 }
-        );
-
-
-
-
+        );*/
 
 
     }
 
-    public void restaurarAlphaDeImagenes(){
+    public void restaurarAlphaDeImagenes() {
 
         menuUnoBtn.setAlpha(1f);
         menuDosBtn.setAlpha(1f);
@@ -106,8 +109,6 @@ public class MenuActivity extends AppCompatActivity {
         menuCuatroBtn.setAlpha(1f);
         menuCincoBtn.setAlpha(1f);
         menuSeisBtn.setAlpha(1f);
-
-
 
 
     }

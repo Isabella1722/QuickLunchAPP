@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.quicklunchapp.model.Plato;
 
@@ -16,14 +17,13 @@ import java.util.ArrayList;
 
 public class VerPlatoActivity extends AppCompatActivity {
 
-    private EditText nombreET;
+    private TextView nombreET;
     private ImageView imagenPlato;
-    private EditText descripcionET;
-    private EditText bebidaET;
-    private EditText jugoET;
+    private TextView descripcionET;
+    private TextView bebidaET;
+    private TextView postreET;
     private EditText comentariosET;
 
-    String mostrarN;
     private Button pedirBtn;
 
     @SuppressLint("ClickableViewAccessibility")
@@ -34,12 +34,22 @@ public class VerPlatoActivity extends AppCompatActivity {
 
         pedirBtn = findViewById(R.id.pedirBtn);
         nombreET = findViewById(R.id.nombreET);
-        mostrarN= getIntent().getExtras().getString("nombre");
-        nombreET.setText(mostrarN);
+        descripcionET = findViewById(R.id.descripcionET);
+        bebidaET = findViewById(R.id.bebidaET);
+        postreET = findViewById(R.id.postreET);
+
+        String nombre = getIntent().getExtras().getString("nombre");
+        String descrip = getIntent().getExtras().getString("descrip");
+        String bebida = getIntent().getExtras().getString("bebida");
+        String postre = getIntent().getExtras().getString("postre");
+
+        nombreET.setText(nombre);
+        descripcionET.setText(descrip);
+        bebidaET.setText(bebida);
+        postreET.setText(postre);
 
         pedirBtn.setOnTouchListener(
                 (v, event) -> {
-
                     switch (event.getAction()) {
                         case MotionEvent.ACTION_DOWN:
                             v.setBackgroundResource(R.drawable.focus_input);
