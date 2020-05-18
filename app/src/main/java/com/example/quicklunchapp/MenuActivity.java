@@ -111,7 +111,7 @@ public class MenuActivity extends AppCompatActivity {
                 addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                        Plato plato = dataSnapshot.getValue(Plato.class);
+                         Plato plato = dataSnapshot.getValue(Plato.class);
                         platos.add(plato);
 
                     }
