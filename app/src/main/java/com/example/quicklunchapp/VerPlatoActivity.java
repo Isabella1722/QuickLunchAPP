@@ -13,8 +13,6 @@ import android.widget.TextView;
 
 import com.example.quicklunchapp.model.Plato;
 
-import java.util.ArrayList;
-
 public class VerPlatoActivity extends AppCompatActivity {
 
     private TextView nombreET;
@@ -23,34 +21,58 @@ public class VerPlatoActivity extends AppCompatActivity {
     private TextView bebidaET;
     private TextView postreET;
     private EditText comentariosET;
-
+    private Plato plato;
     private Button pedirBtn;
 
-    private Plato plato;
-    @SuppressLint("ClickableViewAccessibility")
+    @SuppressLint({"ClickableViewAccessibility"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_plato);
-
-        pedirBtn = findViewById(R.id.pedirBtn);
         nombreET = findViewById(R.id.nombreET);
+        imagenPlato = findViewById(R.id.imagenPlato);
         descripcionET = findViewById(R.id.descripcionET);
         bebidaET = findViewById(R.id.bebidaET);
         postreET = findViewById(R.id.postreET);
+        comentariosET = findViewById(R.id.comentariosET);
+        pedirBtn = findViewById(R.id.pedirBtn);
 
-        //String nombre = getIntent().getExtras().getString("nombre");
-        String descrip = getIntent().getExtras().getString("descrip");
-        String bebida = getIntent().getExtras().getString("bebida");
-        String postre = getIntent().getExtras().getString("postre");
+        // Traer plato
+        plato = (Plato) getIntent().getExtras().getSerializable("plato");
 
-        //nombreET.setText(nombre);
-        descripcionET.setText(descrip);
-        bebidaET.setText(bebida);
-        postreET.setText(postre);
+        String nombre = plato.getNombre();
+        String descripcion = plato.getDescripcion();
+        String bebida = plato.getBebida();
+        String postre = plato.getPostre();
+        String url = plato.getUrl();
 
-        plato= (Plato) getIntent().getExtras().getSerializable("plato");
-        nombreET.setText(plato.toString());
+        nombreET.setText(nombre);
+        descripcionET.setText("Descripción: " + descripcion);
+        bebidaET.setText("Bebida: " + bebida);
+        postreET.setText("Postre: " + postre);
+
+        // Cambiar imagen dependiendo del plato
+        switch (url) {
+            case "1":
+                imagenPlato.setImageResource(R.drawable.descripuno);
+                break;
+            case "2":
+                imagenPlato.setImageResource(R.drawable.desdos);
+                break;
+            case "3":
+                imagenPlato.setImageResource(R.drawable.destres);
+                break;
+            case "4":
+                imagenPlato.setImageResource(R.drawable.descuatro);
+                break;
+            case "5":
+                imagenPlato.setImageResource(R.drawable.descinco);
+                break;
+            case "6":
+                imagenPlato.setImageResource(R.drawable.deseis);
+                break;
+        }
+
         pedirBtn.setOnTouchListener(
                 (v, event) -> {
                     switch (event.getAction()) {

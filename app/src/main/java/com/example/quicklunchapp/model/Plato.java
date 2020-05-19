@@ -14,9 +14,9 @@ public class Plato implements Serializable {
     public Plato(String id, String nombre, String descripcion, String bebida, String postre, String url) {
         this.id = id;
         this.nombre = nombre;
+        this.descripcion = descripcion;
         this.bebida = bebida;
         this.postre = postre;
-        this.descripcion = descripcion;
         this.url = url;
     }
 
