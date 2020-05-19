@@ -21,6 +21,7 @@ import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -64,6 +65,7 @@ public class RegistroActivity extends AppCompatActivity {
                             break;
 
                         case MotionEvent.ACTION_UP:
+                            estaRegistrado = false;
                             v.setBackgroundResource(R.drawable.rounded_input);
                             String nombre = nombreET.getText().toString();
                             String codigo = codigoET.getText().toString();
@@ -74,13 +76,16 @@ public class RegistroActivity extends AppCompatActivity {
                             String id = FirebaseDatabase.getInstance().getReference().child("estudiantes").push().getKey();
                             Usuario estudiante = new Usuario(id, nombre, codigo, documentoIdentidad, clave);
 
-                            FirebaseDatabase.getInstance().getReference("estudiantes/").addChildEventListener(new ChildEventListener() {
+                            FirebaseDatabase.getInstance().getReference("estudiantes/").addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
-                                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                                    Usuario usuario = dataSnapshot.getValue(Usuario.class);
-                                    ArrayList<Usuario> usuarioArrayList;
-                                    usuarioArrayList = new ArrayList<>();
-                                    usuarioArrayList.add(usuario);
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    ArrayList<Usuario> usuarioArrayList = new ArrayList<>();
+
+                                    for(DataSnapshot child: dataSnapshot.getChildren()) {
+                                        Usuario usuario = child.getValue(Usuario.class);
+                                        usuarioArrayList.add(usuario);
+                                    }
+
 
                                     for (int i = 0; i < usuarioArrayList.size(); i++) {
                                         String docu = usuarioArrayList.get(i).getDocumentoIdentidad();
@@ -89,21 +94,32 @@ public class RegistroActivity extends AppCompatActivity {
                                             break;
                                         }
                                     }
-                                }
 
-                                @Override
-                                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                                    if (!nombre.equals("") && !codigo.equals("") && !documentoIdentidad.equals("") && !estaRegistrado &&
+                                            !clave.equals("") && clave.equals(confirmarClave) && condicionesRButton.isChecked()) {
+                                        FirebaseDatabase.getInstance().getReference().child("estudiantes").child(id).setValue(estudiante);
+                                        Intent i = new Intent(RegistroActivity.this, MenuActivity.class);
+                                        startActivity(i);
 
-                                }
-
-                                @Override
-                                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-                                }
-
-                                @Override
-                                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+                                    } else if (!clave.equals(confirmarClave)) {
+                                        runOnUiThread(
+                                                () -> {
+                                                    Toast.makeText(RegistroActivity.this, "Las claves no coinciden", Toast.LENGTH_SHORT).show();
+                                                }
+                                        );
+                                    } else if (estaRegistrado) {
+                                        runOnUiThread(
+                                                () -> {
+                                                    Toast.makeText(RegistroActivity.this, "El usuario ya está registrado", Toast.LENGTH_SHORT).show();
+                                                }
+                                        );
+                                    } else {
+                                        runOnUiThread(
+                                                () -> {
+                                                    Toast.makeText(RegistroActivity.this, "Rellene los campos y acepte los términos y condiciones", Toast.LENGTH_SHORT).show();
+                                                }
+                                        );
+                                    }
                                 }
 
                                 @Override
@@ -111,33 +127,6 @@ public class RegistroActivity extends AppCompatActivity {
 
                                 }
                             });
-
-
-                            if (!nombre.equals("") && !codigo.equals("") && !documentoIdentidad.equals("") && !estaRegistrado &&
-                                    !clave.equals("") && clave.equals(confirmarClave) && condicionesRButton.isChecked()) {
-                                FirebaseDatabase.getInstance().getReference().child("estudiantes").child(id).setValue(estudiante);
-                                Intent i = new Intent(this, MenuActivity.class);
-                                startActivity(i);
-
-                            } else if (!clave.equals(confirmarClave)) {
-                                runOnUiThread(
-                                        () -> {
-                                            Toast.makeText(this, "Las claves no coinciden", Toast.LENGTH_SHORT).show();
-                                        }
-                                );
-                            } else if (estaRegistrado) {
-                                runOnUiThread(
-                                        () -> {
-                                            Toast.makeText(this, "El usuario ya está registrado", Toast.LENGTH_SHORT).show();
-                                        }
-                                );
-                            } else {
-                                runOnUiThread(
-                                        () -> {
-                                            Toast.makeText(this, "Rellene los campos y acepte los términos y condiciones", Toast.LENGTH_SHORT).show();
-                                        }
-                                );
-                            }
                             break;
                     }
                     return true;

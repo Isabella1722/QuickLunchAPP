@@ -13,9 +13,8 @@ public class Ticket {
     private String postre;
     private String comentario;
     private String urlQr;
-    private String urlPlato;
 
-    public Ticket(String id, String idEstudiante, String idPlato, String nombreEstudiante, String codigoEstudiante, String nombrePlato, String descripcion, String bebida, String postre, String comentario, String urlQr, String urlPlato) {
+    public Ticket(String id, String idEstudiante, String idPlato, String nombreEstudiante, String codigoEstudiante, String nombrePlato, String descripcion, String bebida, String postre, String comentario, String urlQr) {
         this.id = id;
         this.idEstudiante = idEstudiante;
         this.idPlato = idPlato;
@@ -27,7 +26,6 @@ public class Ticket {
         this.postre = postre;
         this.comentario = comentario;
         this.urlQr = urlQr;
-        this.urlPlato = urlPlato;
     }
 
     public Ticket() {
@@ -121,11 +119,4 @@ public class Ticket {
         this.urlQr = urlQr;
     }
 
-    public String getUrlPlato() {
-        return urlPlato;
-    }
-
-    public void setUrlPlato(String urlPlato) {
-        this.urlPlato = urlPlato;
-    }
 }

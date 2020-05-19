@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.quicklunchapp.model.Plato;
+import com.example.quicklunchapp.model.Ticket;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class VerPlatoActivity extends AppCompatActivity {
 
@@ -86,6 +88,10 @@ public class VerPlatoActivity extends AppCompatActivity {
 
                         case MotionEvent.ACTION_UP:
                             v.setBackgroundResource(R.drawable.rounded_input);
+
+                            String id = FirebaseDatabase.getInstance().getReference().child("pedidos").push().getKey();
+                            Ticket ticket = new Ticket(id, "1213232", "2703", "andrea", "3456", "Pollo", "si", "jugo", "helado", "hola","12");
+                            FirebaseDatabase.getInstance().getReference().child("pedidos").child(id).setValue(ticket);
                             Intent i = new Intent(this, VerTicketActivity.class);
                             i.putExtra("plato",plato);
                             startActivity(i);

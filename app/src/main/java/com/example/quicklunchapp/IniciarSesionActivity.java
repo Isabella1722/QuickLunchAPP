@@ -1,5 +1,6 @@
 package com.example.quicklunchapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -9,6 +10,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.quicklunchapp.model.Usuario;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class IniciarSesionActivity extends AppCompatActivity {
 
@@ -40,8 +49,36 @@ public class IniciarSesionActivity extends AppCompatActivity {
 
                         case MotionEvent.ACTION_UP:
                             v.setBackgroundResource(R.drawable.rounded_input);
-                            Intent i = new Intent(this, MenuActivity.class);
-                            startActivity(i);
+
+                            Query query = FirebaseDatabase.getInstance().getReference("estudiantes").orderByChild("documentoIdentidad").equalTo(documentoET.getText().toString().trim());
+                            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    Usuario usuario = null;
+                                    for(DataSnapshot coincidencia: dataSnapshot.getChildren()) {
+                                        usuario = coincidencia.getValue(Usuario.class);
+                                    }
+
+                                    if(usuario == null) {
+                                        Toast.makeText(IniciarSesionActivity.this, "El estudiante no está registrado", Toast.LENGTH_LONG).show();
+
+                                    } else {
+                                        if(usuario.getClave().equals(claveET.getText().toString().trim())) {
+                                            Intent i = new Intent(IniciarSesionActivity.this, MenuActivity.class);
+                                            startActivity(i);
+                                            finish();
+                                        } else {
+                                            Toast.makeText(IniciarSesionActivity.this, "La clave es incorrecta", Toast.LENGTH_LONG).show();
+                                        };
+                                    }
+
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
                             break;
                     }
                     return true;
