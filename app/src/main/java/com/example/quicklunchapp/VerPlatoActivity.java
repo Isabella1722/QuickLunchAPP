@@ -30,7 +30,7 @@ public class VerPlatoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_plato);
         nombreET = findViewById(R.id.nombreET);
-        imagenPlato = findViewById(R.id.imagenPlato);
+        imagenPlato = findViewById(R.id.imagenQr);
         descripcionET = findViewById(R.id.descripcionET);
         bebidaET = findViewById(R.id.bebidaET);
         postreET = findViewById(R.id.postreET);
@@ -87,6 +87,7 @@ public class VerPlatoActivity extends AppCompatActivity {
                         case MotionEvent.ACTION_UP:
                             v.setBackgroundResource(R.drawable.rounded_input);
                             Intent i = new Intent(this, VerTicketActivity.class);
+                            i.putExtra("plato",plato);
                             startActivity(i);
                             break;
                     }

@@ -8,7 +8,7 @@
     android:background="@drawable/fondopedido">
 
     <ImageView
-        android:id="@+id/imagenPlato"
+        android:id="@+id/imagenQr"
         android:layout_width="204dp"
         android:layout_height="171dp"
         android:layout_marginStart="104dp"
