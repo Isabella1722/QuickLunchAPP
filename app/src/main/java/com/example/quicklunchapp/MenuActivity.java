@@ -42,6 +42,7 @@ public class MenuActivity extends AppCompatActivity {
 
         menuUnoBtn.setOnClickListener(
                 (v) -> {
+
                     restaurarAlphaDeImagenes();
                     menuUnoBtn.setAlpha(0.2f);
                     //String nombre=FirebaseDatabase.getInstance().getReference().child("platos").child(platos.getId(p01)).
