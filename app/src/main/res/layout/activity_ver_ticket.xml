@@ -9,13 +9,13 @@
 
     <ImageView
         android:id="@+id/imagenQr"
-        android:layout_width="204dp"
+        android:layout_width="0dp"
         android:layout_height="171dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postre2"
-        app:srcCompat="@drawable/qr" />
+        app:layout_constraintTop_toBottomOf="@+id/postre2" />
 
     <TextView
         android:id="@+id/nombreET"
@@ -32,10 +32,9 @@
 
     <TextView
         android:id="@+id/descripcionET2"
-        android:layout_width="318dp"
+        android:layout_width="350dp"
         android:layout_height="0dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
         android:fontFamily="@font/montserrat"
         android:text="Usted ha realizado un pedido de:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -43,16 +42,14 @@
         android:textSize="14sp"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreET" />
 
     <TextView
         android:id="@+id/descripcionET"
-        android:layout_width="336dp"
+        android:layout_width="350dp"
         android:layout_height="30dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="16dp"
         android:fontFamily="@font/montserrat"
         android:text="Nombre plato"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -60,16 +57,14 @@
         android:textSize="14sp"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.593"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descripcionET2" />
 
     <TextView
         android:id="@+id/estadoPedido"
-        android:layout_width="336dp"
+        android:layout_width="350dp"
         android:layout_height="30dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="16dp"
         android:fontFamily="@font/montserrat"
         android:text="En espera"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -77,16 +72,14 @@
         android:textSize="14sp"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.627"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/postre" />
 
     <TextView
         android:id="@+id/postre"
-        android:layout_width="331dp"
+        android:layout_width="350dp"
         android:layout_height="21dp"
         android:layout_marginTop="19dp"
-        android:layout_marginEnd="16dp"
         android:fontFamily="@font/montserrat"
         android:text="Estado del pedido"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -94,16 +87,14 @@
         android:textSize="14sp"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.546"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descripcionET" />
 
     <TextView
         android:id="@+id/postre2"
-        android:layout_width="331dp"
+        android:layout_width="350dp"
         android:layout_height="70dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="16dp"
         android:fontFamily="@font/montserrat"
         android:text="Cuando su pedido esté listo, podrá acercarse a central, el cajero escaneará el código QR y podrás reclamar tu almuerzo."
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -111,7 +102,6 @@
         android:textSize="14sp"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.546"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/estadoPedido" />
 

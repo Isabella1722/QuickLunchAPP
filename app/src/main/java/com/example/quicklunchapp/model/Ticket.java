@@ -1,6 +1,8 @@
 package com.example.quicklunchapp.model;
 
-public class Ticket {
+import java.io.Serializable;
+
+public class Ticket implements Serializable {
 
     private String id;
     private String idEstudiante;
@@ -12,9 +14,8 @@ public class Ticket {
     private String bebida;
     private String postre;
     private String comentario;
-    private String urlQr;
 
-    public Ticket(String id, String idEstudiante, String idPlato, String nombreEstudiante, String codigoEstudiante, String nombrePlato, String descripcion, String bebida, String postre, String comentario, String urlQr) {
+    public Ticket(String id, String idEstudiante, String idPlato, String nombreEstudiante, String codigoEstudiante, String nombrePlato, String descripcion, String bebida, String postre, String comentario) {
         this.id = id;
         this.idEstudiante = idEstudiante;
         this.idPlato = idPlato;
@@ -25,7 +26,6 @@ public class Ticket {
         this.bebida = bebida;
         this.postre = postre;
         this.comentario = comentario;
-        this.urlQr = urlQr;
     }
 
     public Ticket() {
@@ -111,12 +111,5 @@ public class Ticket {
         this.comentario = comentario;
     }
 
-    public String getUrlQr() {
-        return urlQr;
-    }
-
-    public void setUrlQr(String urlQr) {
-        this.urlQr = urlQr;
-    }
 
 }

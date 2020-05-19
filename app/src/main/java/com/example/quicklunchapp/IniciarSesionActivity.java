@@ -65,6 +65,7 @@ public class IniciarSesionActivity extends AppCompatActivity {
                                     } else {
                                         if(usuario.getClave().equals(claveET.getText().toString().trim())) {
                                             Intent i = new Intent(IniciarSesionActivity.this, MenuActivity.class);
+                                            i.putExtra("usuario", usuario);
                                             startActivity(i);
                                             finish();
                                         } else {

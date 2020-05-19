@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
                             v.setBackgroundResource(R.drawable.rounded_input);
                             Intent i = new Intent(this, IniciarSesionActivity.class);
                             startActivity(i);
+                            finish();
                             break;
                     }
                     return true;

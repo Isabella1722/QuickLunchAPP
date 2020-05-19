@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 
 import com.example.quicklunchapp.model.CustomAdapter;
 import com.example.quicklunchapp.model.Plato;
+import com.example.quicklunchapp.model.Usuario;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,6 +26,7 @@ public class MenuActivity extends AppCompatActivity {
 
     private GridView listaPlatosGv;
     private CustomAdapter adapter;
+    private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class MenuActivity extends AppCompatActivity {
         listaPlatosGv = findViewById(R.id.listaPlatosGv);
         adapter = new CustomAdapter();
         listaPlatosGv.setAdapter(adapter);
+        usuario = (Usuario) getIntent().getExtras().getSerializable("usuario");
 
         //Cargar platos de firebase
         FirebaseDatabase.getInstance().getReference().child("platos")
@@ -71,6 +74,7 @@ public class MenuActivity extends AppCompatActivity {
 
                     Plato plato = (Plato) listaPlatosGv.getItemAtPosition(pos);
                     Intent i = new Intent(this, VerPlatoActivity.class);
+                    i.putExtra("usuario", usuario);
                     i.putExtra("plato", plato);
                     startActivity(i);
                 }

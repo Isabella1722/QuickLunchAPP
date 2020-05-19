@@ -99,7 +99,9 @@ public class RegistroActivity extends AppCompatActivity {
                                             !clave.equals("") && clave.equals(confirmarClave) && condicionesRButton.isChecked()) {
                                         FirebaseDatabase.getInstance().getReference().child("estudiantes").child(id).setValue(estudiante);
                                         Intent i = new Intent(RegistroActivity.this, MenuActivity.class);
+                                        i.putExtra("usuario", estudiante);
                                         startActivity(i);
+                                        finish();
 
                                     } else if (!clave.equals(confirmarClave)) {
                                         runOnUiThread(

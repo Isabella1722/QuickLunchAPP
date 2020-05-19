@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.quicklunchapp.model.Plato;
 import com.example.quicklunchapp.model.Ticket;
+import com.example.quicklunchapp.model.Usuario;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class VerPlatoActivity extends AppCompatActivity {
@@ -25,6 +26,7 @@ public class VerPlatoActivity extends AppCompatActivity {
     private EditText comentariosET;
     private Plato plato;
     private Button pedirBtn;
+    private Usuario usuario;
 
     @SuppressLint({"ClickableViewAccessibility"})
     @Override
@@ -41,7 +43,9 @@ public class VerPlatoActivity extends AppCompatActivity {
 
         // Traer plato
         plato = (Plato) getIntent().getExtras().getSerializable("plato");
+        usuario = (Usuario) getIntent().getExtras().getSerializable("usuario");
 
+        String idPlato = plato.getId();
         String nombre = plato.getNombre();
         String descripcion = plato.getDescripcion();
         String bebida = plato.getBebida();
@@ -89,11 +93,20 @@ public class VerPlatoActivity extends AppCompatActivity {
                         case MotionEvent.ACTION_UP:
                             v.setBackgroundResource(R.drawable.rounded_input);
 
-                            String id = FirebaseDatabase.getInstance().getReference().child("pedidos").push().getKey();
-                            Ticket ticket = new Ticket(id, "1213232", "2703", "andrea", "3456", "Pollo", "si", "jugo", "helado", "hola","12");
-                            FirebaseDatabase.getInstance().getReference().child("pedidos").child(id).setValue(ticket);
+                            //String idTicket = FirebaseDatabase.getInstance().getReference().child("pedidos").push().getKey();
+
+                            Ticket ticket = new Ticket(usuario.getCodigo(), usuario.getId(), idPlato, usuario.getNombre(), usuario.getCodigo(), nombre, descripcion, bebida, postre,
+                                    comentariosET.getText().toString());
+
+                            //FirebaseDatabase.getInstance().getReference().child("pedidos").child(idTicket).setValue(ticket);
+
+                            FirebaseDatabase.getInstance().getReference().child("pedidos").child(ticket.getId()).setValue(ticket);
+
                             Intent i = new Intent(this, VerTicketActivity.class);
-                            i.putExtra("plato",plato);
+
+                            i.putExtra("plato", plato);
+                            i.putExtra("ticket", ticket);
+
                             startActivity(i);
                             break;
                     }

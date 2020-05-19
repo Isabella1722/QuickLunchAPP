@@ -27,6 +27,8 @@ public class VerTicketActivity extends AppCompatActivity {
     private TextView estadoPedido;
     private ImageView imagenQr;
     private Plato plato;
+    private Ticket ticket;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,16 +36,17 @@ public class VerTicketActivity extends AppCompatActivity {
         descripcionET = findViewById(R.id.descripcionET);
         estadoPedido = findViewById(R.id.estadoPedido);
         imagenQr = findViewById(R.id.imagenQr);
+        ticket = (Ticket) getIntent().getExtras().getSerializable("ticket");
 
         // Traer plato
         plato = (Plato) getIntent().getExtras().getSerializable("plato");
         String nombre = plato.getNombre();
         descripcionET.setText(nombre);
 
-        String text="Hola xd"; // Whatever you need to encode in the QR code
+        String text = ticket.getId(); // Whatever you need to encode in the QR code
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {
-            BitMatrix bitMatrix = multiFormatWriter.encode(text, BarcodeFormat.QR_CODE,200,200);
+            BitMatrix bitMatrix = multiFormatWriter.encode(text, BarcodeFormat.QR_CODE, 200, 200);
             BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
             Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
             imagenQr.setImageBitmap(bitmap);
