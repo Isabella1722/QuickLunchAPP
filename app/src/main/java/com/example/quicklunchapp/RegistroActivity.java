@@ -81,7 +81,7 @@ public class RegistroActivity extends AppCompatActivity {
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                     ArrayList<Usuario> usuarioArrayList = new ArrayList<>();
 
-                                    for(DataSnapshot child: dataSnapshot.getChildren()) {
+                                    for (DataSnapshot child : dataSnapshot.getChildren()) {
                                         Usuario usuario = child.getValue(Usuario.class);
                                         usuarioArrayList.add(usuario);
                                     }
@@ -89,7 +89,7 @@ public class RegistroActivity extends AppCompatActivity {
 
                                     for (int i = 0; i < usuarioArrayList.size(); i++) {
                                         String docu = usuarioArrayList.get(i).getDocumentoIdentidad();
-                                        if(estudiante.getDocumentoIdentidad().equals(docu)) {
+                                        if (estudiante.getDocumentoIdentidad().equals(docu)) {
                                             estaRegistrado = true;
                                             break;
                                         }

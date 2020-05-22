@@ -7,16 +7,6 @@
     tools:context=".VerTicketActivity"
     android:background="@drawable/fondopedido">
 
-    <ImageView
-        android:id="@+id/imagenQr"
-        android:layout_width="0dp"
-        android:layout_height="171dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postre2" />
-
     <TextView
         android:id="@+id/nombreET"
         android:layout_width="wrap_content"
@@ -96,7 +86,7 @@
         android:layout_height="70dp"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/montserrat"
-        android:text="Cuando su pedido esté listo, podrá acercarse a central, el cajero escaneará el código QR y podrás reclamar tu almuerzo."
+        android:text="El estado del pedido se actualizará cuando el pedido esté listo y se te dará un código Qr que debes presentar en Central al cajero para reclamar tu almuerzo."
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#888888"
         android:textSize="14sp"

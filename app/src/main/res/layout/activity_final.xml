@@ -11,9 +11,8 @@
         android:id="@+id/imageView5"
         android:layout_width="273dp"
         android:layout_height="172dp"
-        android:layout_marginTop="172dp"
+        android:layout_marginTop="72dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logoapp" />
@@ -22,9 +21,8 @@
         android:id="@+id/textView20"
         android:layout_width="279dp"
         android:layout_height="87dp"
-        android:layout_marginTop="40dp"
         android:fontFamily="@font/montserrat"
-        android:text="¡Gracias por almorzar con nosotros, te esperamos pronto!"
+        android:text="¡Gracias por almorzar con nosotros! Ya puedes ir a reclamar tu pedido presentando este código QR."
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="#595858"
@@ -37,11 +35,20 @@
         android:id="@+id/cerrarBtn"
         android:layout_width="154dp"
         android:layout_height="51dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rounded_input2"
         android:fontFamily="@font/montserrat"
         android:text="Cerrar sesión"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qrImg" />
+
+    <ImageView
+        android:id="@+id/qrImg"
+        android:layout_width="190dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView20" />

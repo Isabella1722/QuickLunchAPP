@@ -95,8 +95,8 @@ public class VerPlatoActivity extends AppCompatActivity {
 
                             //String idTicket = FirebaseDatabase.getInstance().getReference().child("pedidos").push().getKey();
 
-                            Ticket ticket = new Ticket(usuario.getCodigo(), usuario.getId(), idPlato, usuario.getNombre(), usuario.getCodigo(), nombre, descripcion, bebida, postre,
-                                    comentariosET.getText().toString());
+                            Ticket ticket = new Ticket(usuario.getCodigo(), usuario.getId(), idPlato, usuario.getNombre(), usuario.getCodigo(),
+                                    nombre, descripcion, bebida, postre, comentariosET.getText().toString(), "En espera");
 
                             //FirebaseDatabase.getInstance().getReference().child("pedidos").child(idTicket).setValue(ticket);
 

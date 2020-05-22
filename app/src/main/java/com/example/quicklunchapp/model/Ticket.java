@@ -14,8 +14,10 @@ public class Ticket implements Serializable {
     private String bebida;
     private String postre;
     private String comentario;
+    private String estado;
 
-    public Ticket(String id, String idEstudiante, String idPlato, String nombreEstudiante, String codigoEstudiante, String nombrePlato, String descripcion, String bebida, String postre, String comentario) {
+    public Ticket(String id, String idEstudiante, String idPlato, String nombreEstudiante, String codigoEstudiante,
+                  String nombrePlato, String descripcion, String bebida, String postre, String comentario, String estado) {
         this.id = id;
         this.idEstudiante = idEstudiante;
         this.idPlato = idPlato;
@@ -26,6 +28,7 @@ public class Ticket implements Serializable {
         this.bebida = bebida;
         this.postre = postre;
         this.comentario = comentario;
+        this.estado = estado;
     }
 
     public Ticket() {
@@ -111,5 +114,11 @@ public class Ticket implements Serializable {
         this.comentario = comentario;
     }
 
+    public String getEstado() {
+        return estado;
+    }
 
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 }
