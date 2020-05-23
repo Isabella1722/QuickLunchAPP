@@ -15,9 +15,10 @@ public class Ticket implements Serializable {
     private String postre;
     private String comentario;
     private String estado;
+    private long datetime;
 
     public Ticket(String id, String idEstudiante, String idPlato, String nombreEstudiante, String codigoEstudiante,
-                  String nombrePlato, String descripcion, String bebida, String postre, String comentario, String estado) {
+                  String nombrePlato, String descripcion, String bebida, String postre, String comentario, String estado, long datetime) {
         this.id = id;
         this.idEstudiante = idEstudiante;
         this.idPlato = idPlato;
@@ -29,6 +30,7 @@ public class Ticket implements Serializable {
         this.postre = postre;
         this.comentario = comentario;
         this.estado = estado;
+        this.datetime = datetime;
     }
 
     public Ticket() {
@@ -120,5 +122,13 @@ public class Ticket implements Serializable {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public long getDatetime() {
+        return datetime;
+    }
+
+    public void setDatetime(long datetime) {
+        this.datetime = datetime;
     }
 }

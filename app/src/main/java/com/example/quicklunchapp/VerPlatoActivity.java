@@ -16,6 +16,8 @@ import com.example.quicklunchapp.model.Ticket;
 import com.example.quicklunchapp.model.Usuario;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
+
 public class VerPlatoActivity extends AppCompatActivity {
 
     private TextView nombreET;
@@ -99,9 +101,12 @@ public class VerPlatoActivity extends AppCompatActivity {
                             // Restaurar color del boton al soltarlo
                             v.setBackgroundResource(R.drawable.rounded_input);
 
+                            long rightnow = Calendar.getInstance().getTime().getTime();
+
                             // Crear ticket del pedido
                             Ticket ticket = new Ticket(usuario.getCodigo(), usuario.getId(), idPlato, usuario.getNombre(), usuario.getCodigo(),
-                                    nombre, descripcion, bebida, postre, comentariosET.getText().toString(), "En espera");
+                                    nombre, descripcion, bebida, postre, comentariosET.getText().toString(), "En espera", rightnow);
+
 
                             // Agregar pedido a firebase
                             FirebaseDatabase.getInstance().getReference().child("pedidos").child(ticket.getId()).setValue(ticket);

@@ -2,9 +2,11 @@ package com.example.quicklunchapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -72,6 +74,10 @@ public class FinalActivity extends AppCompatActivity {
                         case MotionEvent.ACTION_UP:
                             // Restaurar color del boton al soltarlo
                             v.setBackgroundResource(R.drawable.rounded_input2);
+
+                            // Borrar preference
+                            SharedPreferences localStorage = PreferenceManager.getDefaultSharedPreferences(this);
+                            localStorage.edit().clear().apply();
 
                             // Volver al inicio
                             Intent i = new Intent(FinalActivity.this, MainActivity.class);
