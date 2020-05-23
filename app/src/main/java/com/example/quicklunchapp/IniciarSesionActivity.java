@@ -66,8 +66,8 @@ public class IniciarSesionActivity extends AppCompatActivity {
                                         if(usuario.getClave().equals(claveET.getText().toString().trim())) {
                                             Intent i = new Intent(IniciarSesionActivity.this, MenuActivity.class);
                                             i.putExtra("usuario", usuario);
+                                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                             startActivity(i);
-                                            finish();
                                         } else {
                                             Toast.makeText(IniciarSesionActivity.this, "La clave es incorrecta", Toast.LENGTH_LONG).show();
                                         };

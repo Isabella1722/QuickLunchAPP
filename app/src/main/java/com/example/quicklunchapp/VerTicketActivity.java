@@ -49,14 +49,16 @@ public class VerTicketActivity extends AppCompatActivity {
         FirebaseDatabase.getInstance().getReference("pedidos/").child(ticket.getId()).child("estado").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String nuevoEstado = dataSnapshot.getValue().toString();
-                estadoPedido.setText(nuevoEstado);
+                if (dataSnapshot.exists()) {
+                    String nuevoEstado = dataSnapshot.getValue().toString();
+                    estadoPedido.setText(nuevoEstado);
 
-                if(nuevoEstado.contains("listo")){
-                    Intent i = new Intent(VerTicketActivity.this, FinalActivity.class);
-                    i.putExtra("idQr", text);
-                    startActivity(i);
-                    finish();
+                    if (nuevoEstado.contains("listo")) {
+                        Intent i = new Intent(VerTicketActivity.this, FinalActivity.class);
+                        i.putExtra("idQr", text);
+                        startActivity(i);
+                        finish();
+                    }
                 }
             }
 

@@ -93,12 +93,8 @@ public class VerPlatoActivity extends AppCompatActivity {
                         case MotionEvent.ACTION_UP:
                             v.setBackgroundResource(R.drawable.rounded_input);
 
-                            //String idTicket = FirebaseDatabase.getInstance().getReference().child("pedidos").push().getKey();
-
                             Ticket ticket = new Ticket(usuario.getCodigo(), usuario.getId(), idPlato, usuario.getNombre(), usuario.getCodigo(),
                                     nombre, descripcion, bebida, postre, comentariosET.getText().toString(), "En espera");
-
-                            //FirebaseDatabase.getInstance().getReference().child("pedidos").child(idTicket).setValue(ticket);
 
                             FirebaseDatabase.getInstance().getReference().child("pedidos").child(ticket.getId()).setValue(ticket);
 
@@ -106,7 +102,7 @@ public class VerPlatoActivity extends AppCompatActivity {
 
                             i.putExtra("plato", plato);
                             i.putExtra("ticket", ticket);
-
+                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(i);
                             break;
                     }

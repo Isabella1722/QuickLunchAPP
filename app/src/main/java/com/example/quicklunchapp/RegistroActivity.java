@@ -100,9 +100,8 @@ public class RegistroActivity extends AppCompatActivity {
                                         FirebaseDatabase.getInstance().getReference().child("estudiantes").child(id).setValue(estudiante);
                                         Intent i = new Intent(RegistroActivity.this, MenuActivity.class);
                                         i.putExtra("usuario", estudiante);
+                                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                         startActivity(i);
-                                        finish();
-
                                     } else if (!clave.equals(confirmarClave)) {
                                         runOnUiThread(
                                                 () -> {

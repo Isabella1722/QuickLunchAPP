@@ -71,7 +71,6 @@ public class MenuActivity extends AppCompatActivity {
         // Seleccionar plato
         listaPlatosGv.setOnItemClickListener(
                 (view, renglon, pos, id) -> {
-
                     Plato plato = (Plato) listaPlatosGv.getItemAtPosition(pos);
                     Intent i = new Intent(this, VerPlatoActivity.class);
                     i.putExtra("usuario", usuario);

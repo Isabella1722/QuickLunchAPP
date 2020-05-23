@@ -40,7 +40,7 @@ public class FinalActivity extends AppCompatActivity {
 
         cerrarBtn = findViewById(R.id.cerrarBtn);
         qrImg = findViewById(R.id.qrImg);
-        codigoQr = Objects.requireNonNull(getIntent().getExtras()).getString("idQr");
+        codigoQr = getIntent().getExtras().getString("idQr");
 
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {
