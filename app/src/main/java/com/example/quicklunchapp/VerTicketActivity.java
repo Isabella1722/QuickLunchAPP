@@ -27,7 +27,6 @@ public class VerTicketActivity extends AppCompatActivity {
 
     private TextView descripcionET;
     private TextView estadoPedido;
-    private Plato plato;
     private Ticket ticket;
 
     @Override
