@@ -17,7 +17,6 @@
         <activity android:name=".FinalActivity" android:screenOrientation="portrait"></activity>
         <activity android:name=".VerPlatoActivity" android:screenOrientation="portrait"/>
         <activity android:name=".VerTicketActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".HacerPedidoActivity" android:screenOrientation="portrait"/>
         <activity android:name=".MenuActivity" android:screenOrientation="portrait"/>
         <activity android:name=".IniciarSesionActivity" android:screenOrientation="portrait"/>
         <activity android:name=".RegistroActivity" android:screenOrientation="portrait"/>

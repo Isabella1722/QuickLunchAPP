@@ -34,27 +34,42 @@ public class VerTicketActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_ticket);
+
+        // Obtener los views
         descripcionET = findViewById(R.id.descripcionET);
         estadoPedido = findViewById(R.id.estadoPedido);
+
+        // Traer ticket de la actividad anterior
         ticket = (Ticket) getIntent().getExtras().getSerializable("ticket");
 
-        // Traer plato
+        // Traer plato de la actividad anterior
         plato = (Plato) getIntent().getExtras().getSerializable("plato");
+
+        // Obtener datos del ticket y del plato
         String nombre = plato.getNombre();
         String estado = ticket.getEstado();
+
+        // Dar valor al textView
         descripcionET.setText(nombre);
 
-        String text = ticket.getId(); // Whatever you need to encode in the QR code
+        // Codigo del ticket que se obtiene al escanear el Qr
+        String text = ticket.getId();
 
+        // Obtener el estado del pedido actual
         FirebaseDatabase.getInstance().getReference("pedidos/").child(ticket.getId()).child("estado").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // Verificar si el pedido aun existe
                 if (dataSnapshot.exists()) {
                     String nuevoEstado = dataSnapshot.getValue().toString();
+                    // Cambiar el textView de acuerdo al estado del pedido
                     estadoPedido.setText(nuevoEstado);
 
+                    // Cambiar de actividad cuando el pedido este listo para ser reclamado
                     if (nuevoEstado.contains("listo")) {
                         Intent i = new Intent(VerTicketActivity.this, FinalActivity.class);
+
+                        // Pasar el codigo del ticket a la siguiente actividad
                         i.putExtra("idQr", text);
                         startActivity(i);
                         finish();

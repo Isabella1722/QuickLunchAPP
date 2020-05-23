@@ -33,6 +33,8 @@ public class VerPlatoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_plato);
+
+        // Obtener los views
         nombreET = findViewById(R.id.nombreET);
         imagenPlato = findViewById(R.id.imagenQr);
         descripcionET = findViewById(R.id.descripcionET);
@@ -41,10 +43,11 @@ public class VerPlatoActivity extends AppCompatActivity {
         comentariosET = findViewById(R.id.comentariosET);
         pedirBtn = findViewById(R.id.pedirBtn);
 
-        // Traer plato
+        // Traer plato de la actividad anterior
         plato = (Plato) getIntent().getExtras().getSerializable("plato");
         usuario = (Usuario) getIntent().getExtras().getSerializable("usuario");
 
+        // Obtener datos del plato
         String idPlato = plato.getId();
         String nombre = plato.getNombre();
         String descripcion = plato.getDescripcion();
@@ -52,6 +55,7 @@ public class VerPlatoActivity extends AppCompatActivity {
         String postre = plato.getPostre();
         String url = plato.getUrl();
 
+        // Asignar texto a los textView
         nombreET.setText(nombre);
         descripcionET.setText("Descripción: " + descripcion);
         bebidaET.setText("Bebida: " + bebida);
@@ -83,6 +87,7 @@ public class VerPlatoActivity extends AppCompatActivity {
                 (v, event) -> {
                     switch (event.getAction()) {
                         case MotionEvent.ACTION_DOWN:
+                            // Cambiar color del boton al presionarlo
                             v.setBackgroundResource(R.drawable.focus_input);
                             break;
 
@@ -91,18 +96,25 @@ public class VerPlatoActivity extends AppCompatActivity {
                             break;
 
                         case MotionEvent.ACTION_UP:
+                            // Restaurar color del boton al soltarlo
                             v.setBackgroundResource(R.drawable.rounded_input);
 
+                            // Crear ticket del pedido
                             Ticket ticket = new Ticket(usuario.getCodigo(), usuario.getId(), idPlato, usuario.getNombre(), usuario.getCodigo(),
                                     nombre, descripcion, bebida, postre, comentariosET.getText().toString(), "En espera");
 
+                            // Agregar pedido a firebase
                             FirebaseDatabase.getInstance().getReference().child("pedidos").child(ticket.getId()).setValue(ticket);
 
                             Intent i = new Intent(this, VerTicketActivity.class);
 
+                            // Pasar datos del plato y del ticket a la siguiente actividad
                             i.putExtra("plato", plato);
                             i.putExtra("ticket", ticket);
+
+                            // Cerrar actividades anteriores
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
                             startActivity(i);
                             break;
                     }

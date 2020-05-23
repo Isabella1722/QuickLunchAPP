@@ -33,9 +33,14 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        // Obtener los views
         listaPlatosGv = findViewById(R.id.listaPlatosGv);
+
+        // Inicializar adapter del gridView
         adapter = new CustomAdapter();
         listaPlatosGv.setAdapter(adapter);
+
+        // Traer usuario de la actividad anterior
         usuario = (Usuario) getIntent().getExtras().getSerializable("usuario");
 
         //Cargar platos de firebase
@@ -44,6 +49,7 @@ public class MenuActivity extends AppCompatActivity {
                     @Override
                     public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                         Plato plato = dataSnapshot.getValue(Plato.class);
+                        // Agregar platos a gridView
                         adapter.agregarPlato(plato);
                     }
 
@@ -68,13 +74,16 @@ public class MenuActivity extends AppCompatActivity {
                     }
                 });
 
-        // Seleccionar plato
+        // Seleccionar plato del gridView
         listaPlatosGv.setOnItemClickListener(
                 (view, renglon, pos, id) -> {
                     Plato plato = (Plato) listaPlatosGv.getItemAtPosition(pos);
                     Intent i = new Intent(this, VerPlatoActivity.class);
+
+                    // Pasar el usuario y el plato a la siguiente actividad
                     i.putExtra("usuario", usuario);
                     i.putExtra("plato", plato);
+
                     startActivity(i);
                 }
         );

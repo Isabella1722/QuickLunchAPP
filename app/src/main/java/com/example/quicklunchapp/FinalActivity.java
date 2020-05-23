@@ -38,10 +38,14 @@ public class FinalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
 
+        // Obtener los views
         cerrarBtn = findViewById(R.id.cerrarBtn);
         qrImg = findViewById(R.id.qrImg);
+
+        //  Traer codigo del ticket de la actividad anterior
         codigoQr = getIntent().getExtras().getString("idQr");
 
+        // Crear codigo Qr
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {
             BitMatrix bitMatrix = multiFormatWriter.encode(codigoQr, BarcodeFormat.QR_CODE, 200, 200);
@@ -52,10 +56,12 @@ public class FinalActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        // Cerrar sesion
         cerrarBtn.setOnTouchListener(
                 (v, event) -> {
                     switch (event.getAction()) {
                         case MotionEvent.ACTION_DOWN:
+                            // Cambiar color del boton al presionarlo
                             v.setBackgroundResource(R.drawable.focus_input2);
                             break;
 
@@ -64,7 +70,10 @@ public class FinalActivity extends AppCompatActivity {
                             break;
 
                         case MotionEvent.ACTION_UP:
+                            // Restaurar color del boton al soltarlo
                             v.setBackgroundResource(R.drawable.rounded_input2);
+
+                            // Volver al inicio
                             Intent i = new Intent(FinalActivity.this, MainActivity.class);
                             startActivity(i);
                             finish();

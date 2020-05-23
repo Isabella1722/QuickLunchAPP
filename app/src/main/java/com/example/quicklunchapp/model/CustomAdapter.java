@@ -42,6 +42,7 @@ public class CustomAdapter extends BaseAdapter {
         ImageView platoImage = row.findViewById(R.id.platoImage);
         nombrePlatoTv.setText(platos.get(position).getNombre());
 
+        // Asignar imagen dependiendo del plato en el gridView
         switch (platos.get(position).getUrl()) {
             case "1":
                 platoImage.setImageResource(R.drawable.uno);
@@ -65,6 +66,7 @@ public class CustomAdapter extends BaseAdapter {
         return row;
     }
 
+    // Agregar platos al gridView
     public void agregarPlato(Plato plato) {
         platos.add(plato);
         this.notifyDataSetChanged();

@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+
     private Button iniciarSesionBtn;
     private Button registroBtn;
 
@@ -18,14 +19,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Encontrar los views
         iniciarSesionBtn = findViewById(R.id.iniciarSesionBtn);
         registroBtn = findViewById(R.id.registroBtn);
 
         iniciarSesionBtn.setOnTouchListener(
                 (v, event) -> {
-
                     switch (event.getAction()) {
                         case MotionEvent.ACTION_DOWN:
+                            // Cambiar el color del boton al presionarlo
                             v.setBackgroundResource(R.drawable.focus_input);
                             break;
 
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                             break;
 
                         case MotionEvent.ACTION_UP:
+                            // Restaurar el color del boton al soltarlo y cambiar de actividad
                             v.setBackgroundResource(R.drawable.rounded_input);
                             Intent i = new Intent(this, IniciarSesionActivity.class);
                             startActivity(i);
@@ -46,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
 
         registroBtn.setOnTouchListener(
                 (v, event) -> {
-
                     switch (event.getAction()) {
                         case MotionEvent.ACTION_DOWN:
+                            // Cambiar el color del boton al presionarlo
                             v.setBackgroundResource(R.drawable.focus_input);
                             break;
 
@@ -57,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                             break;
 
                         case MotionEvent.ACTION_UP:
+                            // Restaurar el color del boton al soltarlo y cambiar de actividad
                             v.setBackgroundResource(R.drawable.rounded_input);
                             Intent i = new Intent(this, RegistroActivity.class);
                             startActivity(i);
