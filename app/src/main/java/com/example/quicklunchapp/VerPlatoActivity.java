@@ -1,9 +1,11 @@
 package com.example.quicklunchapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.widget.Button;
@@ -111,10 +113,13 @@ public class VerPlatoActivity extends AppCompatActivity {
                             // Agregar pedido a firebase
                             FirebaseDatabase.getInstance().getReference().child("pedidos").child(ticket.getId()).setValue(ticket);
 
+                            SharedPreferences localStorage = PreferenceManager.getDefaultSharedPreferences(VerPlatoActivity.this);
+                            localStorage.edit().putString("userdocumento", usuario.getDocumentoIdentidad()).
+                                    putString("userclave", usuario.getClave()).putString("userticket", ticket.getId()).apply();
+
                             Intent i = new Intent(this, VerTicketActivity.class);
 
                             // Pasar datos del plato y del ticket a la siguiente actividad
-                            i.putExtra("plato", plato);
                             i.putExtra("ticket", ticket);
 
                             // Cerrar actividades anteriores

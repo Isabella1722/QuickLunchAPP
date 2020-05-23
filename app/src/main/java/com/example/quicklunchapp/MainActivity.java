@@ -11,14 +11,18 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.widget.Button;
+import android.widget.TextClock;
 import android.widget.Toast;
 
+import com.example.quicklunchapp.model.Ticket;
 import com.example.quicklunchapp.model.Usuario;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -85,15 +89,24 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    // Verificar si el usuario ha iniciado sesion
     public void comprobarLogin() {
         SharedPreferences localStorage = PreferenceManager.getDefaultSharedPreferences(this);
         String documento = localStorage.getString("userdocumento", "NO_USER");
         String clave = localStorage.getString("userclave", "NO_PASS");
-        if(!documento.equals("NO_USER") || !clave.equals("NO_PASS")) {
+        String ticket = localStorage.getString("userticket", "NO_TICKET");
+
+        // Verificar si el usuario ha iniciado sesion pero no ha pedido nada
+        if((!documento.equals("NO_USER") || !clave.equals("NO_PASS")) && ticket.equals("NO_TICKET")) {
             login(documento, clave, this);
+
+            // Verificar si el usuario ha pedido algo
+        } else if(!ticket.equals("NO_TICKET")){
+            verTicket(documento, clave, ticket, this);
         }
     }
 
+    // Recuperar datos del login
     public void login(String documento, String clave, Context context) {
         Query query = FirebaseDatabase.getInstance().getReference("estudiantes").orderByChild("documentoIdentidad").equalTo(documento);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -128,6 +141,29 @@ public class MainActivity extends AppCompatActivity {
                     };
                 }
 
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    // Recuperar datos del pedido
+    public void verTicket(String documento, String clave, String idTicket, Context context){
+        // Pasar datos del plato y del ticket a la siguiente actividad
+        FirebaseDatabase.getInstance().getReference().child("pedidos").child(idTicket).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Ticket ticket = dataSnapshot.getValue(Ticket.class);
+                if(ticket != null) {
+                    Intent i = new Intent(MainActivity.this, VerTicketActivity.class);
+                    i.putExtra("ticket", ticket);
+                    // Cerrar actividades anteriores
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(i);
+                }
             }
 
             @Override

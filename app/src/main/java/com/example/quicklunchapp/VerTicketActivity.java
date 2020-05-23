@@ -42,11 +42,8 @@ public class VerTicketActivity extends AppCompatActivity {
         // Traer ticket de la actividad anterior
         ticket = (Ticket) getIntent().getExtras().getSerializable("ticket");
 
-        // Traer plato de la actividad anterior
-        plato = (Plato) getIntent().getExtras().getSerializable("plato");
-
         // Obtener datos del ticket y del plato
-        String nombre = plato.getNombre();
+        String nombre = ticket.getNombrePlato();
         String estado = ticket.getEstado();
 
         // Dar valor al textView
