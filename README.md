@@ -1,6 +1,6 @@
 # QuickLunchAPP
 
-Es una plataforma que cuenta con una aplicación móvil y una página web para que los estudiantes becados de la universidad Icesi que quieran pedir su almuerzo de manera fácil y rápida sin necesidad de hacer fila, para ello deben de realizar los siguientes pasos:
+Es una plataforma que cuenta con una aplicación móvil y una página web para que los estudiantes becados de la universidad Icesi que quieran pedir su almuerzo de manera fácil y rápida sin necesidad de hacer fila, para ello se debe realizar los siguientes pasos:
 
 1. Iniciar sesión desde tu celular 
 2. Elige del menú la opción de almuerzo que más te guste
